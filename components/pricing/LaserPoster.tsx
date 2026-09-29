@@ -199,7 +199,8 @@ export const LaserPoster: React.FC<LaserPosterProps> = ({ onOpenBooking }) => {
                 ))}
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
 
         {/* Right Column (CORPS & JAMBES) */}
@@ -325,7 +326,8 @@ export const LaserPoster: React.FC<LaserPosterProps> = ({ onOpenBooking }) => {
                 ))}
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
 
       </div>

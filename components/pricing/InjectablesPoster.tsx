@@ -160,7 +160,8 @@ export const InjectablesPoster: React.FC<InjectablesPosterProps> = ({ onOpenBook
                 ))}
               </ul>
             </div>
-          ))}
+          );
+        })}
         </div>
 
         {/* Right Column (SKINBOOSTER, BOTOX, FILLER, LIPBOOSTER) */}
@@ -228,7 +229,8 @@ export const InjectablesPoster: React.FC<InjectablesPosterProps> = ({ onOpenBook
                 ))}
               </ul>
             </div>
-          ))}
+          );
+        })}
         </div>
 
       </div>

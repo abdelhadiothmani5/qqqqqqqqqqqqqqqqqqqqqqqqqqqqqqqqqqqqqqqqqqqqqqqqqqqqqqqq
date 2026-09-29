@@ -742,7 +742,8 @@ export const TarificationSection: React.FC<TarificationSectionProps> = ({
                     ))}
                   </div>
                 </div>
-              ))}
+              );
+            })}
             </div>
 
           </div>
