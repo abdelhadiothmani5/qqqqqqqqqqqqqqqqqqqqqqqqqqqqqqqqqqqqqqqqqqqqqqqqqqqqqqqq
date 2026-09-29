@@ -1,0 +1,8 @@
+{
+  "name": "Remix GH Clinic — Cabinet Médico-Esthétique Dr. Ghaouat Sarra",
+  "description": "Plateforme d\u0027excellence en médecine esthétique à Khemis Miliana (Algérie). Épilation laser médicale, Botox, Fillers, Hydrafacial, PRP, Microneedling et Skinboosters par Dr. Ghaouat Sarra.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

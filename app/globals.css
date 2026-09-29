@@ -1,0 +1,315 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+  }
+
+  /* iOS Mobile & Touch Optimization */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent callout popup on iOS for icons, buttons and links */
+  button, a {
+    -webkit-touch-callout: none;
+  }
+}
+
+/* Luxury Custom Smooth Scroll & Selection */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #e8b4b8;
+  color: #1c1917;
+}
+
+.dark ::selection {
+  background-color: #9e2a50;
+  color: #ffffff;
+}
+
+/* Custom Scrollbar for Luxury Experience */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf8f5;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0c0a09;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4a373;
+  border-radius: 9999px;
+  border: 2px solid #faf8f5;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #57483d;
+  border: 2px solid #0c0a09;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b38867;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #8c7362;
+}
+
+/* Glassmorphism helpers */
+.glass-luxury {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(229, 212, 203, 0.45);
+}
+
+.dark .glass-luxury {
+  background: rgba(20, 18, 16, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(223, 186, 157, 0.16);
+}
+
+.glass-luxury-dark {
+  background: rgba(28, 25, 23, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(223, 186, 157, 0.25);
+}
+
+.dark .glass-luxury-dark {
+  background: rgba(14, 12, 11, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(223, 186, 157, 0.2);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(240, 227, 220, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(179, 136, 103, 0.08), 0 4px 12px -2px rgba(28, 25, 23, 0.03);
+}
+
+.dark .glass-card {
+  background: rgba(24, 21, 19, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(223, 186, 157, 0.14);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Subtle Shimmer Animation */
+@keyframes shimmer-gold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(223, 186, 157, 0) 0%,
+    rgba(223, 186, 157, 0.3) 50%,
+    rgba(223, 186, 157, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-gold 4s infinite ease-in-out;
+}
+
+/* ========================================================================= */
+/* GH CLINIC SIGNATURE LIVE ANIMATION SYSTEM                                 */
+/* ========================================================================= */
+
+/* 1. Breathing Glow Behind Hero / Logo */
+@keyframes gh-breathing-glow {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+.animate-gh-glow {
+  animation: gh-breathing-glow 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+/* 2. Slow Organic Floating Background Movement (8-20s cycle) */
+@keyframes gh-ambient-float-1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(30px, -25px, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-20px, 20px, 0) scale(0.95);
+  }
+}
+
+@keyframes gh-ambient-float-2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    transform: translate3d(-35px, 25px, 0) scale(1.06);
+  }
+  75% {
+    transform: translate3d(25px, -18px, 0) scale(0.96);
+  }
+}
+
+.animate-gh-float-1 {
+  animation: gh-ambient-float-1 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-gh-float-2 {
+  animation: gh-ambient-float-2 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* 3. Flowing Medical Contour Lines Drift */
+@keyframes gh-contour-drift {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+.animate-gh-contour {
+  animation: gh-contour-drift 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* 4. Periodic Light Sweep on Hero CTA Button */
+@keyframes gh-cta-light-sweep {
+  0%, 65% {
+    transform: translateX(-150%) skewX(-20deg);
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.6;
+  }
+  85% {
+    transform: translateX(250%) skewX(-20deg);
+    opacity: 0.8;
+  }
+  90%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-gh-sweep {
+  animation: gh-cta-light-sweep 7s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* 5. Card Border Moving Perimeter Highlight */
+@keyframes gh-border-pulse {
+  0%, 100% {
+    border-color: rgba(244, 200, 212, 0.6);
+    box-shadow: 0 4px 20px -2px rgba(199, 56, 89, 0.04);
+  }
+  50% {
+    border-color: rgba(222, 102, 137, 0.85);
+    box-shadow: 0 12px 30px -4px rgba(199, 56, 89, 0.12);
+  }
+}
+
+.gh-card-hover {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.5s ease;
+}
+
+.gh-card-hover:hover {
+  transform: translateY(-6px);
+  border-color: rgba(216, 67, 107, 0.6);
+  box-shadow: 0 20px 35px -8px rgba(199, 56, 89, 0.14),
+              0 8px 16px -4px rgba(28, 25, 23, 0.04);
+}
+
+.dark .gh-card-hover:hover {
+  border-color: rgba(223, 186, 157, 0.5);
+  box-shadow: 0 20px 35px -8px rgba(199, 56, 89, 0.25),
+              0 8px 16px -4px rgba(0, 0, 0, 0.6);
+}
+
+/* 6. Image Light Sheen on Hover */
+.gh-img-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.gh-img-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: transform 0.8s ease, left 0.8s ease;
+  pointer-events: none;
+}
+
+.group:hover .gh-img-sheen::after {
+  left: 200%;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gh-glow,
+  .animate-gh-float-1,
+  .animate-gh-float-2,
+  .animate-gh-contour,
+  .animate-gh-sweep,
+  .animate-shimmer {
+    animation: none !important;
+  }
+  .gh-card-hover,
+  .gh-img-sheen::after {
+    transition: none !important;
+    transform: none !important;
+  }
+}
